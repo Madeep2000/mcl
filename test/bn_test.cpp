@@ -6,6 +6,7 @@ cybozu::CpuClock clk;
 #include <mcl/bn256.hpp>
 #include <cybozu/option.hpp>
 #include <cybozu/xorshift.hpp>
+#include "./performance_test.h"
 
 #if defined(__EMSCRIPTEN__) && !defined(MCL_AVOID_EXCEPTION_TEST)
 	#define MCL_AVOID_EXCEPTION_TEST
@@ -327,7 +328,7 @@ void testPairing(const G1& P, const G2& Q, const char *eStr)
 {
 	puts("testPairing");
 	Fp12 e1;
-	pairing(e1, P, Q);
+	PERFORMANCE_TEST_NEW("\noate pairing:",pairing(e1, P, Q));
 	Fp12 e2;
 	if (eStr) {
 		std::stringstream ss(eStr);

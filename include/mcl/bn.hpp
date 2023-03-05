@@ -1543,6 +1543,9 @@ inline void finalExp(Fp12& y, const Fp12& x)
 		expHardPartBN(y, y);
 	}
 }
+
+
+
 inline void millerLoop(Fp12& f, const G1& P_, const G2& Q_)
 {
 	G1 P(P_);
